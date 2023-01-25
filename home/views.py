@@ -55,7 +55,7 @@ def first_entry_date(entries):
         else:
             print('No first date returned')
     else:
-        pass
+        return now_utc
 
 
 
