@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+<head xmlns="http://www.w3.org/1999/html">
+    {% block head %}
+        <title>Photo</title>
+    {% endblock %}
+</head>
+{% block header %}
+
+{% endblock %}
+
+{% block content %}
+<div>
+    <header>
+        <h1 class="bg_MFSS_RGG_fire">{{ photo }}</h1>
+    </header>
+
+</div>
+<div class="photos-galleries">
+    <div>
+        <center>
+            <a href="{% url 'gallery' photo.gallery.id %}" class="btn btn-dark"  align="left">Gallery: {{ gallery.name }}</a>
+            <a href="{% url 'event-profile' gallery.event.id %}" class="btn btn-dark"  align="right">Event: {{ gallery.event }}</a>
+        </center>
+    </div>
+    <hr>
+    <div>
+        <section>
+          <center>
+            {% if photo %}
+              {% if photo.portrait %}
+                <img class="photo__img_p" src="{{ photo.photo.url }}" alt="{{ photo.id }}"></img>
+              {% else %}
+                <img class="photo__img" src="{{ photo.photo.url }}" alt="{{ photo.id }}"></img>
+              {% endif %}
+            {% endif %}
+          </center>
+        </section>
+        <br>
+        <br>
+        <section>
+            <h3> {{ photo.name }}</h3>
+        </section>
+        <section>
+            <p>{{ photo.info }}</p>
+        </section>
+    </div>
+    <div>
+        <center>
+            <a href="{% url 'gallery' photo.gallery.id %}" class="btn btn-dark"  align="left">Gallery: {{ gallery.name }}</a>
+            <a href="{% url 'event-profile' gallery.event.id %}" class="btn btn-dark"  align="right">Event: {{ gallery.event }}</a>
+        </center>
+    </div>
+
+</div>
+{% endblock %}

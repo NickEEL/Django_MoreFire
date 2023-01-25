@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+
+<head>
+    {% block head %}
+        <title>Track Profile</title>
+    {% endblock %}
+</head>
+{% block header %}
+  <h1 class="bg_MFSS_RGG_fire">{{ track_profile }}</h1>
+{% endblock %}
+
+{% block content %}
+<div class="music_profile">
+
+    <div>
+        <center>
+            <div >
+                 <h2>{{ genre|join:" , " }}</h2>
+            </div>
+
+            <div id="mt_player">
+                {{ track_profile.track_embed |safe }}
+            </div>
+            <hr>
+            <div>
+                <div>
+                    <ul class="no-bullets" id="mix_profile">
+
+                        {% if feat_artists %}
+                            <li>Featuring:
+                                {% for f in feat_artists %}
+
+                                        {% if f.artist_url %}
+                                             <a href="{{ f.artist_url }}" target="_blank">{{ f }} &nbsp;</a>
+                                        {% else %}
+                                             <a>{{ f }} &nbsp;</a>
+                                        {% endif %}
+
+                                {% endfor %}
+                            </li>
+                        {% endif %}
+
+
+                        {% if band %}
+                            <li>
+                                Band:
+                                {% if band.band_url %}
+                                     <a href="{{band.band_url }}" target="_blank">{{ band }}</a>
+                                {% else %}
+                                    <a>{{ band }}</a>
+                                {% endif %}
+                            </li>
+                        {% endif %}
+
+                        {% if producer %}
+                            <li>Produced by:
+                                {% for p in producer %}
+
+                                        {% if p.producer_url %}
+                                             <a href="{{ p.producer_url }}" target="_blank">{{ p }} &nbsp;</a>
+                                        {% else %}
+                                             <a>{{ p }} &nbsp;</a>
+                                        {% endif %}
+
+                                {% endfor %}
+                            </li>
+                        {% endif %}
+
+                        <li>Release date:  <a> {{ track_profile.release_date }}</a></li>
+
+                        {% if track_profile.recorded_date %}
+                            <li>Recorded date:  <a> {{ track_profile.recorded_date }}</a></li>
+                        {% endif %}
+
+                        {% if track_profile.label %}
+                            {% if track_profile.label.website %}
+                                <li>Label:  <a href="{{ track_profile.label.website }}" target="_blank"> {{ studio }}</a></li>
+                            {% else %}
+                                <li>Label:  <a> {{ track_profile.label }}</a></li>
+                            {% endif %}
+                        {% endif %}
+
+                        {% if studio %}
+                            {% if studio.website %}
+                                <li>Recorded at:  <a href="{{ studio.website }}" target="_blank"> {{ studio }}</a></li>
+                            {% else %}
+                                <li>Recorded at:  <a> {{ studio }}</a></li>
+                            {% endif %}
+                        {% endif %}
+                        <hr>
+                        {% if track_profile.track_info %}
+                            <li>Info:<p>{{ track_profile.track_info }}</p></li>
+                        <hr>
+                        {% endif %}
+                        {% if links %}
+                            <h4>Links</h4>
+                            {% for l in links %}
+                                <li>
+                                    <a href="{{ l.link_url }}"  target="_blank" >
+                                        {{ l }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </center>
+    </div>
+
+
+</div>
+
+{% endblock %}

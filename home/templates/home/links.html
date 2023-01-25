@@ -1,0 +1,249 @@
+{% extends 'base.html' %}
+
+
+<head>
+    {% block head %}
+        <title>Links</title>
+    {% endblock %}
+</head>
+{% block header %}
+  <h1 class="bg_MFSS_RGG_fire">Links</h1>
+{% endblock %}
+
+
+{% block content %}
+    <div class="links">
+        <div class="row">
+            <div class="column">
+                <h2>Web links</h2>
+                <section>
+                    <ul>
+                        {% if soundsystem_all %}
+                            <h3>Sound System links</h3>
+                                {% for l in soundsystem_all %}
+                                    <li>
+                                        <a href="{{ l.sound_url }}" target="_blank">
+                                            {{ l.name }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            <hr>
+                        {% endif %}
+
+
+                        {% if venues %}
+                            <h3>Venue links</h3>
+                                {% for l in venues %}
+                                    <li>
+                                        <a href="{{ l.website }}" target="_blank">
+                                            {{ l.name }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            <hr>
+                        {% endif %}
+
+
+                        {% if eventcrew_all %}
+                            <h3>Event Crews links</h3>
+                                {% for l in eventcrew_all %}
+                                    <li>
+                                        <a href="{{ l.website }}" target="_blank">
+                                            {{ l.name }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            <hr>
+                        {% endif %}
+
+                        {% if artist_all.artist_url %}
+                            <h3>Artist links</h3>
+                                {% for l in artist_all %}
+                                    <li>
+                                        <a href="{{ l.artist_url }}" target="_blank">
+                                            {{ l.name }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            <hr>
+                        {% endif %}
+
+                        {% if groups %}
+                            <h3>Bands</h3>
+                                {% for l in bands %}
+                                    <li>
+                                        <a href="{{ l.band_url }}" target="_blank">
+                                            {{ l.name }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            <hr>
+                        {% endif %}
+
+                        {% if producers %}
+                            <h3>Producer links</h3>
+                                {% for l in producers %}
+                                    <li>
+                                        <a href="{{ l.producer_url }}" target="_blank">
+                                            {{ l.name }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            <hr>
+                        {% endif %}
+
+                        {% if labels %}
+                            <h3>Record Labels</h3>
+                                {% for l in labels %}
+                                    <li>
+                                        <a href="{{ l.website }}" target="_blank">
+                                            {{ l.name }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            <hr>
+                        {% endif %}
+
+                        {% if studio_all %}
+                            <h3>Studios</h3>
+                                {% for l in studio_all %}
+                                    <li>
+                                        <a href="{{ l.website }}" target="_blank">
+                                            {{ l.name }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                                <hr>
+                        {% endif %}
+
+                        {% if links_radio %}
+                            <h3>Radio Stations</h3>
+                                {% for l in links_radio %}
+                                    <li>
+                                        <a href="{{ l.link_url }}" target="_blank">
+                                            {{ l.name }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            <hr>
+                        {% endif %}
+
+                        {% if links_culture %}
+                            <h3>Culture links</h3>
+                                {% for l in links_culture %}
+                                    <li>
+                                        <a href="{{ l.link_url }}" target="_blank">
+                                            {{ l.name }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            <hr>
+                        {% endif %}
+
+                        {% if links_records %}
+                            <h3>Records shops</h3>
+                                {% for l in links_records %}
+                                    <li>
+                                        <a href="{{ l.link_url }}" target="_blank">
+                                            {{ l.name }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            <hr>
+                        {% endif %}
+
+                        {% if links_ticket %}
+                            <h3>Ticket links</h3>
+                                {% for l in links_ticket %}
+                                    <li>
+                                        <a href="{{ l.link_url }}" target="_blank">
+                                            {{ l.name }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            <hr>
+                        {% endif %}
+
+                        {% if links_merch %}
+                            <h3>Merch links</h3>
+                                {% for l in links_merch %}
+                                    <li>
+                                        <a href="{{ l.link_url }}" target="_blank">
+                                            {{ l.name }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            <hr>
+                        {% endif %}
+
+                        {% if links_tek %}
+                            <h3>Technical Equipment links</h3>
+                                {% for l in links_tek %}
+                                    <li>
+                                        <a href="{{ l.link_url }}" target="_blank">
+                                            {{ l.name }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            <hr>
+                        {% endif %}
+
+                        {% if links_other %}
+                            <h3>Other Interesting links</h3>
+                                {% for l in links_other %}
+                                    <li>
+                                        <a href="{{ l.link_url }}" target="_blank">
+                                            {{ l.name }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            <hr>
+                        {% endif %}
+                    </ul>
+                </section>
+            </div>
+            <div class="column">
+                <h2>Streaming & Social Media links</h2>
+                <section>
+                    <ul>
+                        {% if links_mf %}
+                            <h3>More Fire links</h3>
+                                {% for l in links_mf %}
+                                    <li>
+                                        <a href="{{ l.link_url }}" target="_blank">
+                                            {{ l.name }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            <hr>
+                        {% endif %}
+
+                        {% if links_stream %}
+                            <h3>Streaming links</h3>
+                                {% for l in links_stream %}
+                                    <li>
+                                        <a href="{{ l.link_url }}" target="_blank">
+                                            {{ l.name }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            <hr>
+                        {% endif %}
+
+                        {% if links_social %}
+                            <h3>Social links</h3>
+                                {% for l in links_social %}
+                                    <li>
+                                        <a href="{{ l.link_url }}" target="_blank">
+                                            {{ l.name }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            <hr>
+                        {% endif %}
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+{% endblock %}

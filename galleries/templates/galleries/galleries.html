@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+<head xmlns="http://www.w3.org/1999/html">
+    {% block head %}
+        <title> Galleries</title>
+    {% endblock %}
+</head>
+{% block header %}
+  <h1 class="bg_MFSS_RGG_fire">Photo Galleries</h1>
+{% endblock %}
+
+{% block content %}
+<div class="photos-galleries">
+    <div>
+        <nav aria-label="Page photo galleries list">
+          <ul class="pagination pagination-sm justify-content-center">
+
+                {% if photo_galleries_page.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?page1">&laquo First</a></li>
+                    <li class="page-item"><a class="page-link" href="?page={{ photo_galleries_page.has_previous_number }}">Previous</a></li>
+                {% endif %}
+
+                {% for i in nums %}
+                    -
+                    <li class="page-item"><a class="page-link" href="?page={{ forloop.counter }}">{{ forloop.counter }}</a></li>
+                {% endfor %}
+
+                {% if photo_galleries_page.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{ photo_galleries_page.next_page_number }}">next</a></li>
+                    <li class="page-item"><a class="page-link" href="?page={{ photo_galleries_page.paginator.num_pages }}">Last &raquo</a></li>
+                {% endif %}
+
+           </ul>
+        </nav>
+    </div>
+    <div >
+      <center>
+        <ul class="no-bullets">
+            <li>
+                {% for gallery in photo_galleries_page %}
+                    <div class="card text-bg-light mb-3">
+                        <div class="card-header">
+                            <h2>{{ gallery.name }}</h2>
+                            Gallery Created: <a>{{ gallery.created_dt.date }}</a>
+                        </div>
+                        <div class="card-body">
+                            {% for cov in cover_photo %}
+                                {% if cov.gallery == gallery %}
+
+                                    <a href="{% url 'gallery' gallery.id %}" >
+                                        <img src="{{ cov.photo.url }}" class="img-thumnail"></img><br>
+                                        Gallery: {{ gallery.name }}
+                                    </a>
+                                {% else %}
+                                    <a href="{% url 'gallery' gallery.id %}" >
+                                        Gallery: {{ gallery.name }}
+                                    </a>
+                                {% endif %}
+                            {% endfor %}
+                            {% if gallery.event %}
+                                <hr>
+                                Event Date: <a>{{ gallery.event.start_dt.date }}</a><br>
+                                <a href="{% url 'event-profile' gallery.event.id %}" class="btn btn-dark" id="card_butt" align="right">Event: {{ gallery.event.name }}</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </li>
+        </ul>
+        </center>
+     </div>
+    <div>
+        <nav aria-label="Page photo galleries list">
+          <ul class="pagination pagination-sm justify-content-center">
+
+                {% if photo_galleries_page.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?page1">&laquo First</a></li>
+                    <li class="page-item"><a class="page-link" href="?page={{ photo_galleries_page.has_previous_number }}">Previous</a></li>
+                {% endif %}
+
+
+                {% for i in nums %}
+                    -
+                    <li class="page-item"><a class="page-link" href="?page={{ forloop.counter }}">{{ forloop.counter }}</a></li>
+                {% endfor %}
+
+                {% if photo_galleries_page.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{ photo_galleries_page.next_page_number }}">next</a></li>
+                    <li class="page-item"><a class="page-link" href="?page={{ photo_galleries_page.paginator.num_pages }}">Last &raquo</a></li>
+                {% endif %}
+
+           </ul>
+        </nav>
+    </div>
+</div>
+{% endblock %}

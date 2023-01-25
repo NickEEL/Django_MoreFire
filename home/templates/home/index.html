@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+
+<head>
+    {% block head %}
+        {% load static %}
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/amplitudejs@{{5.0.3}}/dist/amplitude.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}">
+        <title>More Fire</title>
+    {% endblock %}
+</head>
+{% block header %}
+  <h1 class="bg_MFSS_RGG_fire">More Fire Outernational</h1>
+  
+{% endblock %}
+
+
+{% block content %}
+    <div >
+        <section>
+          <center>
+            {% if photo_hm.hm_image %}
+              {% if photo_hm.portrait %}
+                <img class="home_photo_img_p" src="{{ photo_hm.hm_image.url }}" alt="More Fire Sound"></img>
+              {% else %}
+                <img class="home_photo_img" src="{{ photo_hm.hm_image.url }}" alt="More Fire Sound"></img>
+              {% endif %}
+            {% endif %}
+          </center>
+        </section>
+        <section class="hm_info_top">
+            {% if info_hm_top %}
+                <article>
+                    {% if info_hm_top.headline %}
+                        <h2>{{ info_hm_top.headline }}</h2>
+                    {% endif %}
+                    <p>
+                        {{ info_hm_top.info }}
+                    </p>
+                </article>
+            {% endif %}
+            <div id="enq_butt_hm">
+                <center>
+                    <a class="btn btn-dark" role="button" href=" {% url 'enquiries' %}" align="center" >Enquiries</a>
+                </center>
+            </div>
+
+        </section>
+
+
+
+        <section class="hm_info">
+            <ul class="no-bullets">
+                {% if info_hm_xtop %}
+                    {% for post in info_hm_xtop %}
+                        <li>
+                            <article>
+                                {% if post.headline %}
+                                    <h3>{{ post.headline }}</h3>
+                                {% endif %}
+                                <center>
+                                    <a>Created: {{ post.created_dt }}</a>
+                                {% if post.created_dt != post.edited_dt %}
+                                    <a>&emsp13;Edited: {{ post.edited_dt }}</a>
+                                {% endif %}
+                                </center>
+                                <p>
+                                    {{ post.info }}
+                                </p>
+                            </article>
+                        </li>
+                        <hr>
+
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </section>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,177 @@
+{% extends 'base.html' %}
+
+
+<head>
+    {% block head %}
+        <title>Event</title>
+    {% endblock %}
+</head>
+{% block header %}
+  <h1 class="bg_MFSS_RGG_fire">{{ event }}</h1>
+{% endblock %}
+
+
+{% block content %}
+<div>
+    <center>
+        <div>
+            <a href="{% url 'events-list' %}" class="btn btn-light" id="card_butt">Listings</a>
+            <a href="{% url 'past-events-list' %}" class="btn btn-light" id="card_butt">Past Events</a>
+        </div>
+
+        <div class="music_profile">
+            <div >
+                 <h2>{{ genres_vl|join:" , " }}</h2>
+            </div>
+            <div>
+                {% if event.event_image %}
+                    <img src="{{ event.event_image.url }}" id="event-profile-img"> </img>
+                {% endif %}
+            </div>
+            <hr>
+
+            <div>
+                {% if event.finished %}
+                    <ul class="no-bullets">
+                        <li>Date: <a>{{ event.start_dt.date }} </a> </li>
+                        {% if venue_url %}
+                            <li>Venue: <a href="{{ venue_url }}" target="_blank">{{ event.venue }}</a> </li>
+                        {% else %}
+                            <li>Venue: <a>{{ event.venue }}</a></li>
+                        {% endif %}
+
+                    </ul>
+                {% else %}
+                    <ul class="no-bullets">
+                        {% if event.status == 'Cancelled' %}
+                            <li> Status: <h3 id="cancelled"> {{ event.status }}</h3> </li>
+
+                        {% else %}
+                        <li> Start: <a>{{ event_start }}</a> </li>
+                            <li>Finish: <a>{{ event_finish }} </a></li>
+                            <li> Venue: <a href="{{ venue_url }}" target="_blank">{{ event.venue }}</a> </li>
+                            {% if event.event_url %}
+                                <li> Website: <a href="{{ event.event_url }}" target="_blank">{{ event.event_url }}</a> </li>
+                            {% endif %}
+                            {% if event.ticket_url %}
+                                <li> Ticket: <a href="{{ event.ticket_url }}" target="_blank" >{{ event.ticket_url }}</a> </li>
+                            {% endif %}
+
+                        {% endif %}
+                    </ul>
+
+                {% endif %}
+            </div>
+            <hr>
+            <div>
+                {% if event.event_info %}
+                    <h4>Info: </h4>
+                    <p>{{ event.event_info }}</p>
+                    <hr>
+                {% endif %}
+            </div>
+
+
+            <div>
+                <div  class=profile-table">
+                     <div class="row">
+                         <div class="column" >
+                             {% if vocals %}
+                                <h4>Vocals</h4>
+                                {% for v in vocals %}
+                                    <ul class="no-bullets">
+                                        <li>
+                                            {% if v.artist_url %}
+                                                 <a href="{{ v.artist_url }}" target="_blank">{{ v }}</a>
+                                            {% else %}
+                                                 <a>{{ v }}</a>
+                                            {% endif %}
+                                        </li>
+                                    </ul>
+                                {% endfor %}
+                            {% endif %}
+
+                         </div>
+                         <div class="column">
+                            {% if selectas %}
+                                <h4>Selectas</h4>
+                                {% for s in selectas %}
+                                    <ul class="no-bullets">
+                                        <li>
+                                            {% if s.artist_url %}
+                                                 <a href="{{ s.artist_url }}" target="_blank">{{ s }}</a>
+                                            {% else %}
+                                                 <a>{{ s }}</a>
+                                            {% endif %}
+
+                                        </li>
+                                    </ul>
+                                {% endfor %}
+                            {% endif %}
+
+                         </div>
+                         <div class="column">
+                            {% if instrumentals %}
+                                <h4>Instrumentals</h4>
+                                {% for i in instrumentals %}
+                                    <ul class="no-bullets">
+                                        <li>
+                                            {% if i.artist_url %}
+                                                 <a href="{{ i.artist_url }}" target="_blank">{{ i }}</a>
+                                            {% else %}
+                                                 <a>{{ i }}</a>
+                                            {% endif %}
+                                        </li>
+                                    </ul>
+                                {% endfor %}
+                            {% endif %}
+                             {% if bands %}
+                                <h4>Bands</h4>
+                                {% for b in bands %}
+                                    <ul class="no-bullets">
+                                        <li>
+                                            {% if b.artist_url %}
+                                                 <a href="{{ b.band_url }}" target="_blank">{{ b }}</a>
+                                            {% else %}
+                                                 <a>{{ b }}</a>
+                                            {% endif %}
+                                        </li>
+                                    </ul>
+                                {% endfor %}
+                            {% endif %}
+                         </div>
+                     </div>
+                </div>
+                <hr>
+                <div>
+                    {% if mixes %}
+                        Mixes
+                        {% for mix in mixes %}
+                            <ul class="no-bullets">
+                                <li>
+                                    <a href="{% url 'mix-profile' mix.id %}" >
+                                        {{ mix }}
+                                    </a>
+                                </li>
+                            </ul>
+                        {% endfor %}
+                    <hr>
+                    {% endif %}
+                </div>
+                 <div >
+                    {% if event_galleries %}
+                        <h4>Photo Galleries</h4>
+                        {% for g in event_galleries %}
+                            <ul class="no-bullets">
+                                <li><a href="{% url 'gallery' g.id %}">{{ g }}</a></li>
+                            </ul>
+
+                        {% endfor %}
+                    {% endif %}
+                </div>
+              </div>
+            </div>
+
+    </center>
+</div>
+{% endblock %}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="more fire, morefire, sound, sound system, dub, jungle, dub dave, bristol">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.css' %}">
+        <style>
+            @font-face {
+                src: url({% static 'font/Stencil Cargo Army.ttf' %}) format('truetype');
+                font-family: SCA ;
+                }
+
+            @font-face {
+                src: url({% static 'font/Exo20-Regular.otf' %});
+                font-family: Exo2 ;
+                }
+
+            .bg_MFSS_RGG_fire {
+                background-image: url( {% static 'media/bg_images/MFSS_RGG_fire.png' %} );
+                background-position: center;
+                background-size: 111%;
+                }
+
+            .bg_woodside {
+                background-image: url( {% static  'media/bg_images/wood_side.JPG' %});
+                background-position: 50% 90%;
+                background-size: 150%;
+                }
+
+           .bg_wood_warm {
+                background-image: url( {% static  'media/bg_images/bg_wood_warm.JPG' %});
+                background-position: 50% 50%;
+                background-size: 100%;
+                }
+
+            .bg_black_grill {
+                background-image: url( {% static 'media/bg_images/black_grill.JPG' %});
+                background-position: center;
+                background-size: 111%;
+                }
+            @media only screen and (min-width: 768px) {
+                .bg_black_grill {
+                background-image: url( {% static 'media/bg_images/black_grill.JPG' %});
+                background-position: center;
+                background-size: 150%;
+                }
+
+            }
+
+        </style>
+        {% block head %}
+            <title>More Fire -templates/base</title>
+        {% endblock %}
+    </head>
+    <body class="bg_black_grill"  >
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+        <div>
+            <div>
+                <div>
+
+                    <main class="bg_wood_warm" >
+                        {% block body %}
+                            <div>
+                                {% include 'navbar.html' %}
+
+                            </div>
+                            <header>
+                                {% block header %}
+                                {% endblock %}
+                            </header>
+
+                            <div>
+                                {% block content %}
+                                {% endblock %}
+                            </div>
+                        {% endblock %}
+                    </main>
+                </div>
+            </div>
+
+            <footer id="footer">
+                {% block footer %}
+                    <h6>More Fire Productions: Copyright (c) {{ current_year }}</h6>
+                {% endblock %}
+            </footer>
+        </div>
+    </body>
+</html>
