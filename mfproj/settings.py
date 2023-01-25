@@ -151,14 +151,14 @@ if S3_ENABLED:
     AWS_SECRET_ACCESS_KEY = config('BUCKETEER_AWS_SECRET_ACCESS_KEY')
     AWS_STORAGE_BUCKET_NAME = config('BUCKETEER_BUCKET_NAME')
     AWS_S3_REGION_NAME = config('BUCKETEER_AWS_REGION')
-    AWS_DEFAULT_ACL = None
+    AWS_DEFAULT_ACL = 'public-read'
     AWS_S3_SIGNATURE_VERSION = 's3v4'
     AWS_S3_ENDPOINT_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
     AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
 
 if not LOCAL_SERVE_STATIC_FILES:
     STATIC_DEFAULT_ACL = 'public-read'
-    STATIC_LOCATION = 'static'
+    STATIC_LOCATION = 'static/'
     STATIC_URL = f'{AWS_S3_ENDPOINT_URL}/{STATIC_LOCATION}/'
     STATICFILES_STORAGE = 'utils.storage_backends.StaticStorage'
 
