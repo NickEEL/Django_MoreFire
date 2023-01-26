@@ -26,10 +26,11 @@ urlpatterns = [
     path('music/', include('music.urls')),
     path('photos/', include('galleries.urls')),
     path('captcha/', include('captcha.urls')),
-]#+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)# below if statements used when setting up S3. Removethis line if successful
-
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # below if statements used when setting up S3. Removethis line if successful
+"""
 if settings.LOCAL_SERVE_STATIC_FILES:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.LOCAL_SERVE_MEDIA_FILES:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+"""

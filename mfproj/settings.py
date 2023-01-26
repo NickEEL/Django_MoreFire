@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
-import django_heroku
+#import django_heroku
 import dj_database_url
 from decouple import config
 
@@ -30,14 +30,13 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', cast=bool)
 
 
-ALLOWED_HOSTS = ['127.0.0.1','morefire.herokuapp.com', 'morefireouternational.herokuapp.com']
-
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    "whitenoise.runserver_nostatic",
+    #"whitenoise.runserver_nostatic",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -88,6 +87,7 @@ WSGI_APPLICATION = 'mfproj.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
+DATABASE_URL = config('DATABASE_URL')
 
 DATABASES = {
     #'default': {
@@ -138,7 +138,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
-
+"""
 S3_ENABLED = config('S3_ENABLED', cast=bool, default=False)
 LOCAL_SERVE_MEDIA_FILES = config('LOCAL_SERVE_MEDIA_FILES', cast=bool, default=not S3_ENABLED)
 LOCAL_SERVE_STATIC_FILES = config('LOCAL_SERVE_STATIC_FILES', cast=bool, default=not S3_ENABLED)
@@ -172,7 +172,7 @@ if not LOCAL_SERVE_MEDIA_FILES:
     PRIVATE_MEDIA_DEFAULT_ACL = 'private'
     PRIVATE_MEDIA_LOCATION = 'media/private/'
     PRIVATE_FILE_STORAGE = 'utils.storage_backends.PrivateMediaStorage'
-
+"""
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
@@ -182,7 +182,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+#STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 #STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 #STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
@@ -204,7 +204,7 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = config('EMAIL_USE_TLS')
 #EMAIL_USE_SSL = config('EMAIL_HOST_SSL')
 
-django_heroku.settings(locals(), staticfiles=False)
+#django_heroku.settings(locals(), staticfiles=False)
 #django_heroku.settings(locals())
 
 
