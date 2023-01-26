@@ -1,1 +1,1 @@
-web: python manage.py migrate && gunicorn mfproj.wsgi
+web: gunicorn mfproj.wsgi --log-file -
