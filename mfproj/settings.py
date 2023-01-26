@@ -124,6 +124,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+if not DEBUG:
+    CSRF_TRUSTED_ORIGINS = ['https://web-production-22f3.up.railway.app']
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
