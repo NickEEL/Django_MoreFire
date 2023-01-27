@@ -144,7 +144,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
-"""
+
 S3_ENABLED = config('S3_ENABLED', cast=bool, default=False)
 LOCAL_SERVE_MEDIA_FILES = config('LOCAL_SERVE_MEDIA_FILES', cast=bool, default=not S3_ENABLED)
 LOCAL_SERVE_STATIC_FILES = config('LOCAL_SERVE_STATIC_FILES', cast=bool, default=not S3_ENABLED)
@@ -153,14 +153,19 @@ if (not LOCAL_SERVE_MEDIA_FILES or not LOCAL_SERVE_STATIC_FILES) and not S3_ENAB
     raise ValueError('S3_ENABLED must be true if either media or static files are not served locally')
 
 if S3_ENABLED:
-    AWS_ACCESS_KEY_ID = config('BUCKETEER_AWS_ACCESS_KEY_ID')
-    AWS_SECRET_ACCESS_KEY = config('BUCKETEER_AWS_SECRET_ACCESS_KEY')
-    AWS_STORAGE_BUCKET_NAME = config('BUCKETEER_BUCKET_NAME')
-    AWS_S3_REGION_NAME = config('BUCKETEER_AWS_REGION')
-    AWS_DEFAULT_ACL = 'public-read'
+    AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+    AWS_STORAGE_BUCKET_NAME = config('AWS_BUCKET_NAME')
+    AWS_S3_REGION_NAME = config('AWS_REGION')
+    AWS_DEFAULT_ACL =  'public-read'
     AWS_S3_SIGNATURE_VERSION = 's3v4'
     AWS_S3_ENDPOINT_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
     AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
+    AWS_LOACATION = 'static'
+    AWS_QUERYSTRING_AUTH = False
+    AWS_HEADERS = {
+        'Access-Control-Allow-Origin': '*',
+    }
 
 if not LOCAL_SERVE_STATIC_FILES:
     STATIC_DEFAULT_ACL = 'public-read'
@@ -178,7 +183,7 @@ if not LOCAL_SERVE_MEDIA_FILES:
     PRIVATE_MEDIA_DEFAULT_ACL = 'private'
     PRIVATE_MEDIA_LOCATION = 'media/private/'
     PRIVATE_FILE_STORAGE = 'utils.storage_backends.PrivateMediaStorage'
-"""
+
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
@@ -215,7 +220,7 @@ EMAIL_USE_TLS = config('EMAIL_USE_TLS')
 
 
 #CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.math_challenge'
-
+"""
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -234,4 +239,4 @@ LOGGING = {
         },
     },
 }
-
+"""

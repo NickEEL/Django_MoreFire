@@ -1,8 +1,7 @@
-
 from django.conf import settings
 from storages.backends.s3boto3 import S3Boto3Storage
 
-"""
+
 class StaticStorage(S3Boto3Storage):
     #Used to manage static files for the web server
     location = settings.STATIC_LOCATION
@@ -25,4 +24,3 @@ class PrivateMediaStorage(S3Boto3Storage):
     file_overwrite = False
     custom_domain = False
     
-"""
