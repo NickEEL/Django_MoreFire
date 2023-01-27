@@ -36,7 +36,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    #"whitenoise.runserver_nostatic",
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -215,12 +215,8 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = config('EMAIL_USE_TLS')
 #EMAIL_USE_SSL = config('EMAIL_HOST_SSL')
 
-#django_heroku.settings(locals(), staticfiles=False)
-#django_heroku.settings(locals())
 
 
-#CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.math_challenge'
-"""
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -239,4 +235,4 @@ LOGGING = {
         },
     },
 }
-"""
+
