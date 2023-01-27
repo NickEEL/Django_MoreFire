@@ -95,7 +95,7 @@ def linksview(request):
     links_other = Link.objects.filter(linktype__other=True).exclude(mflink=True).order_by('name')
     venues_all = Venue.objects.exclude(name='N/A').exclude(website__isnull=True).order_by('name')
     artists_all = Artist.objects.exclude(name='N/A').exclude(artist_url__isnull=True).order_by('name')
-    soundsystem_all = Soundsystem.objects.exclude(name='N/A').exclude(name='More Fire Sound').order_by('name')
+    soundsystem_all = Soundsystem.objects.exclude(name='N/A').exclude(name='More Fire Sound').exclude(sound_url__isnull=True).order_by('name')
     studio_all = Studio.objects.exclude(name='N/A').exclude(website__isnull=True).order_by('name')
     eventcrew_all = EventCrew.objects.exclude(name='N/A').exclude(name='More Fire').exclude(website__isnull=True).order_by('name')
     producers = Producer.objects.exclude(name='N/A').exclude(producer_url__isnull=True).order_by('name')
