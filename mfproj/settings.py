@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
-#import django_heroku
 import dj_database_url
 from decouple import config
 
@@ -29,9 +28,11 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-
-ALLOWED_HOSTS = ['*']
-
+ALLOWED_HOSTS = [
+    'morefireouternational.com',
+    'web-production-22f3.up.railway.app',
+    'http://127.0.0.1:8000/',
+    ]
 
 # Application definition
 
