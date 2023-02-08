@@ -19,7 +19,9 @@
     <div>
         <center>
             <a href="{% url 'gallery' photo.gallery.id %}" class="btn btn-dark"  align="left">Gallery: {{ gallery.name }}</a>
-            <a href="{% url 'event-profile' gallery.event.id %}" class="btn btn-dark"  align="right">Event: {{ gallery.event }}</a>
+            {% if photo_gallery.event %}
+                <a href="{% url 'event-profile' photo_gallery.event.id %}" class="btn btn-dark"  align="right">Event: {{ photo_gallery.event }}</a>
+            {% endif %}
         </center>
     </div>
     <hr>
@@ -47,7 +49,9 @@
     <div>
         <center>
             <a href="{% url 'gallery' photo.gallery.id %}" class="btn btn-dark"  align="left">Gallery: {{ gallery.name }}</a>
-            <a href="{% url 'event-profile' gallery.event.id %}" class="btn btn-dark"  align="right">Event: {{ gallery.event }}</a>
+            {% if photo_gallery.event %}
+                <a href="{% url 'event-profile' photo_gallery.event.id %}" class="btn btn-dark"  align="right">Event: {{ photo_gallery.event }}</a>
+            {% endif %}
         </center>
     </div>
 
