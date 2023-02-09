@@ -30,9 +30,6 @@ DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
-# FORM SUBMISSION
-# Comment out the following line and place your railway URL, and your production URL in the array.
-CSRF_TRUSTED_ORIGINS = ['https://*.morefireouternational.com', 'https://*.web-production-22f3.up.railway.app', '127.0.0.1']
 
 # Application definition
 
@@ -124,11 +121,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# FORM SUBMISSION
+# Comment out the following line and place your railway URL, and your production URL in the array.
+# 
 
-
-CSRF_TRUSTED_ORIGINS = ['https://web-production-22f3.up.railway.app',
-                        'https://web-production-22f3.up.railway.app/admin',
+CSRF_TRUSTED_ORIGINS = [#'https://web-production-22f3.up.railway.app',
+                        #'https://web-production-22f3.up.railway.app/admin',
                         'https://*web-production-22f3.up.railway.app',
+                        'https://*.morefireouternational.com',
+                        '127.0.0.1'
                         ]
 
 # Internationalization
