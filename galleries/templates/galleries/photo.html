@@ -43,7 +43,9 @@
             <h3> {{ photo.name }}</h3>
         </section>
         <section>
-            <p>{{ photo.info }}</p>
+            {% if photo.info %}
+                <p>{{ photo.info }}</p>
+            {% endif %}
         </section>
     </div>
     <div>

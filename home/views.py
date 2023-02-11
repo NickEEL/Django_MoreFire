@@ -327,6 +327,7 @@ def site_search(request):
         mix_q = Q(name__icontains=searched) | Q(dj__name__icontains=searched) | Q(featured_artists__name__icontains=searched) | Q(genre__name__icontains=searched)
         track_q = Q(name__icontains=searched) | Q(producer__name__icontains=searched) | Q(featured_artists__name__icontains=searched) | Q(label__name__icontains=searched) | Q(studio__name__icontains=searched) | Q(genre__name__icontains=searched)
         galleries_q = Q(name__icontains=searched) | Q(event__name__icontains=searched)
+        photo_q = Q(name__icontains=searched)
 
         #Search filters
         listings_srch = MFEvent.objects.filter(events_q).exclude(status='Plan').exclude(finished=True).order_by('start_dt').distinct()
@@ -334,6 +335,26 @@ def site_search(request):
         mix_srch = Mix.objects.filter(mix_q).order_by('release_date').distinct()
         track_srch = Track.objects.filter(track_q).order_by('release_date').distinct()
         galleries_srch = Gallery.objects.filter(galleries_q).order_by('created_dt').distinct()
+        photo_srch = Photo.objects.filter(photo_q).order_by('created_dt').distinct()
+
+
+
+        #Search Counts
+        listing_srch_count = len(listings_srch)
+        past_events_srch_count = len(past_events_srch)
+        mix_srch_count = len(mix_srch)
+        track_srch_count = len(track_srch)
+        galleries_srch_count = len(galleries_srch)
+        photo_srch_count = len(photo_srch)
+
+        total_srch_counts = sum([
+            listing_srch_count,
+            past_events_srch_count,
+            mix_srch_count,
+            track_srch_count,
+            galleries_srch_count,
+            photo_srch_count,
+            ])
 
 
         args = {
@@ -344,8 +365,16 @@ def site_search(request):
             'mix_srch': mix_srch,
             'track_srch': track_srch,
             'galleries_srch': galleries_srch,
+            'photo_srch': photo_srch,
+            'listing_srch_count': listing_srch_count,
+            'past_events_srch_count': past_events_srch_count,
+            'mix_srch_count': mix_srch_count,
+            'track_srch_count': track_srch_count,
+            'galleries_srch_count': galleries_srch_count,
+            'photo_srch_count': photo_srch_count,
+            'total_srch_counts': total_srch_counts,
+            }
 
-        }
         return render(request, 'home/site_search.html', args)
     else:
         return render(request, 'home/site_search.html')

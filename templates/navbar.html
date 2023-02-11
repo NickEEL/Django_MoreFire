@@ -5,9 +5,7 @@
 
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark wrapper">
     <div class="container-fluid">
-        <div class="card-header">
-            <a class="navbar-brand" href="{% url 'home' %}"><h2 class="navbar_text">Home</h2></a>
-        </div>
+
 
         <div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,6 +15,9 @@
 
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
+              <li>
+                <a class="navbar-brand" href="{% url 'home' %}"><h2 class="navbar_text">Home</h2></a>
+              </li>
               <li>
                 <a class="navbar-brand" href="{% url 'home_calendar' %}"><h2 class="navbar_text">Calendar</h2></a>
               </li>

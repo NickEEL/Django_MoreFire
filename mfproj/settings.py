@@ -129,7 +129,6 @@ CSRF_TRUSTED_ORIGINS = [#'https://web-production-22f3.up.railway.app',
                         #'https://web-production-22f3.up.railway.app/admin',
                         'https://*web-production-22f3.up.railway.app',
                         'https://*morefireouternational.com',
-                        '127.0.0.1'
                         ]
 
 # Internationalization
@@ -218,7 +217,7 @@ EMAIL_USE_TLS = config('EMAIL_USE_TLS')
 #EMAIL_USE_SSL = config('EMAIL_HOST_SSL')
 
 
-
+"""
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -237,4 +236,4 @@ LOGGING = {
         },
     },
 }
-
+"""
