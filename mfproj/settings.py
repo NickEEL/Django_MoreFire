@@ -217,7 +217,7 @@ EMAIL_USE_TLS = config('EMAIL_USE_TLS')
 #EMAIL_USE_SSL = config('EMAIL_HOST_SSL')
 
 
-"""
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -236,4 +236,4 @@ LOGGING = {
         },
     },
 }
-"""
+
