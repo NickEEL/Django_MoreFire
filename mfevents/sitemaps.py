@@ -1,6 +1,6 @@
 from django.contrib.sitemaps import Sitemap
 from django.shortcuts import reverse
-from .models import MFEvent, Mix, Track
+from .models import MFEvent
 
 class ListingsViewSitemap(Sitemap):
     changefreq = 'never'
@@ -22,25 +22,3 @@ class PastEventsViewSitemap(Sitemap):
 
     def lastmod(self, obj):
         return obj.edited_dt
-
-
-class MixViewSitemap(Sitemap):
-    changefreq = 'never'
-    priority = 0.5
-
-    def items(self):
-        return Mix.objects.all().order_by('-release_date')
-
-    def lastmod(self, obj):
-        return obj.release_date
-
-
-class TrackViewSitemap(Sitemap):
-    changefreq = 'never'
-    priority = 0.5
-
-    def items(self):
-        return Track.objects.all().order_by('-release_date')
-
-    def lastmod(self, obj):
-        return obj.release_date

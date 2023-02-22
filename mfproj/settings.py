@@ -34,7 +34,7 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 # Application definition
 
 INSTALLED_APPS = [
-
+    'djangocms_admin_style',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,6 +43,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.sitemaps',
+    'django_check_seo',
+    'cms',
+    'menus',
+    'treebeard',
     'captcha',
     'storages',
     #created apps
@@ -138,7 +142,10 @@ CSRF_TRUSTED_ORIGINS = [#'https://web-production-22f3.up.railway.app',
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-gb'
+LANGUAGES = [
+    ('en', 'English'),
+]
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 
