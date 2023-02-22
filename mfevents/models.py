@@ -157,4 +157,4 @@ class Mix(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('mix_profile', kwargs={'mix_id': self.pk})
+        return reverse('mix-profile', kwargs={'mix_id': self.pk})
