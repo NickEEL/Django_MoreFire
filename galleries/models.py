@@ -13,6 +13,10 @@ class Gallery(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        k = {'gallery_id': self.id}
+        return reverse('gallery', kwargs=k)
+
 
 class Photo(models.Model):
     name = models.CharField('Photo name', max_length=50, default='Photo')
@@ -28,5 +32,5 @@ class Photo(models.Model):
         return '%s #%s (%s)' % (self.name, self.pk, self.gallery)
 
     def get_absolute_url(self):
-        k = {'gallery': self.gallery, 'photo_id': self.id}
+        k = {'gallery_id': self.gallery.id, 'photo_id': self.id}
         return reverse('photo', kwargs=k)

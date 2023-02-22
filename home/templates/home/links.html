@@ -22,7 +22,7 @@
                             <h3>Sound System links</h3>
                                 {% for l in soundsystem_all %}
                                     <li>
-                                        <a href="{{ l.sound_url }}" target="_blank">
+                                        <a href="{{ l.sound_url }}" title="soundsytem link" target="_blank">
                                             {{ l.name }}
                                         </a>
                                     </li>
@@ -35,7 +35,7 @@
                             <h3>Venue links</h3>
                                 {% for l in venues %}
                                     <li>
-                                        <a href="{{ l.website }}" target="_blank">
+                                        <a href="{{ l.website }}" title="venue link" target="_blank">
                                             {{ l.name }}
                                         </a>
                                     </li>
@@ -48,7 +48,7 @@
                             <h3>Event Crews links</h3>
                                 {% for l in eventcrew_all %}
                                     <li>
-                                        <a href="{{ l.website }}" target="_blank">
+                                        <a href="{{ l.website }}" title="Event Crew link" target="_blank">
                                             {{ l.name }}
                                         </a>
                                     </li>
@@ -60,7 +60,7 @@
                             <h3>Artist links</h3>
                                 {% for l in artist_all %}
                                     <li>
-                                        <a href="{{ l.artist_url }}" target="_blank">
+                                        <a href="{{ l.artist_url }}" title="artist link" target="_blank">
                                             {{ l.name }}
                                         </a>
                                     </li>
@@ -72,7 +72,7 @@
                             <h3>Bands</h3>
                                 {% for l in bands %}
                                     <li>
-                                        <a href="{{ l.band_url }}" target="_blank">
+                                        <a href="{{ l.band_url }}" title="band link" target="_blank">
                                             {{ l.name }}
                                         </a>
                                     </li>
@@ -84,7 +84,7 @@
                             <h3>Producer links</h3>
                                 {% for l in producers %}
                                     <li>
-                                        <a href="{{ l.producer_url }}" target="_blank">
+                                        <a href="{{ l.producer_url }}" title="producer link" target="_blank">
                                             {{ l.name }}
                                         </a>
                                     </li>
@@ -96,7 +96,7 @@
                             <h3>Record Labels</h3>
                                 {% for l in labels %}
                                     <li>
-                                        <a href="{{ l.website }}" target="_blank">
+                                        <a href="{{ l.website }}" title="record label link" target="_blank">
                                             {{ l.name }}
                                         </a>
                                     </li>
@@ -108,7 +108,7 @@
                             <h3>Studios</h3>
                                 {% for l in studio_all %}
                                     <li>
-                                        <a href="{{ l.website }}" target="_blank">
+                                        <a href="{{ l.website }}" title="studio link" target="_blank">
                                             {{ l.name }}
                                         </a>
                                     </li>
@@ -120,7 +120,7 @@
                             <h3>Radio Stations</h3>
                                 {% for l in links_radio %}
                                     <li>
-                                        <a href="{{ l.link_url }}" target="_blank">
+                                        <a href="{{ l.link_url }}" title="radio link" target="_blank">
                                             {{ l.name }}
                                         </a>
                                     </li>
@@ -132,7 +132,7 @@
                             <h3>Culture links</h3>
                                 {% for l in links_culture %}
                                     <li>
-                                        <a href="{{ l.link_url }}" target="_blank">
+                                        <a href="{{ l.link_url }}" title="culture link" target="_blank">
                                             {{ l.name }}
                                         </a>
                                     </li>
@@ -144,7 +144,7 @@
                             <h3>Records shops</h3>
                                 {% for l in links_records %}
                                     <li>
-                                        <a href="{{ l.link_url }}" target="_blank">
+                                        <a href="{{ l.link_url }}" title="record shop links" target="_blank">
                                             {{ l.name }}
                                         </a>
                                     </li>
@@ -156,7 +156,7 @@
                             <h3>Ticket links</h3>
                                 {% for l in links_ticket %}
                                     <li>
-                                        <a href="{{ l.link_url }}" target="_blank">
+                                        <a href="{{ l.link_url }}" title="tickets link" target="_blank">
                                             {{ l.name }}
                                         </a>
                                     </li>
@@ -168,7 +168,7 @@
                             <h3>Merch links</h3>
                                 {% for l in links_merch %}
                                     <li>
-                                        <a href="{{ l.link_url }}" target="_blank">
+                                        <a href="{{ l.link_url }}" title="merch link" target="_blank">
                                             {{ l.name }}
                                         </a>
                                     </li>
@@ -180,7 +180,7 @@
                             <h3>Technical Equipment links</h3>
                                 {% for l in links_tek %}
                                     <li>
-                                        <a href="{{ l.link_url }}" target="_blank">
+                                        <a href="{{ l.link_url }}" title="equipment link" target="_blank">
                                             {{ l.name }}
                                         </a>
                                     </li>
@@ -192,7 +192,7 @@
                             <h3>Other Interesting links</h3>
                                 {% for l in links_other %}
                                     <li>
-                                        <a href="{{ l.link_url }}" target="_blank">
+                                        <a href="{{ l.link_url }}" title="other links" target="_blank">
                                             {{ l.name }}
                                         </a>
                                     </li>
@@ -210,7 +210,7 @@
                             <h3>More Fire links</h3>
                                 {% for l in links_mf %}
                                     <li>
-                                        <a href="{{ l.link_url }}" target="_blank">
+                                        <a href="{{ l.link_url }}" title="more fire links" target="_blank">
                                             {{ l.name }}
                                         </a>
                                     </li>
@@ -222,7 +222,7 @@
                             <h3>Streaming links</h3>
                                 {% for l in links_stream %}
                                     <li>
-                                        <a href="{{ l.link_url }}" target="_blank">
+                                        <a href="{{ l.link_url }}" title="streaming links" target="_blank">
                                             {{ l.name }}
                                         </a>
                                     </li>
@@ -234,7 +234,7 @@
                             <h3>Social links</h3>
                                 {% for l in links_social %}
                                     <li>
-                                        <a href="{{ l.link_url }}" target="_blank">
+                                        <a href="{{ l.link_url }}" title="social media link" target="_blank">
                                             {{ l.name }}
                                         </a>
                                     </li>

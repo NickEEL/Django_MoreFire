@@ -32,7 +32,7 @@
                                 {% for f in feat_artists %}
 
                                         {% if f.artist_url %}
-                                             <a href="{{ f.artist_url }}" target="_blank">{{ f }} &nbsp;</a>
+                                             <a href="{{ f.artist_url }}" title="artist" target="_blank">{{ f }} &nbsp;</a>
                                         {% else %}
                                              <a>{{ f }} &nbsp;</a>
                                         {% endif %}
@@ -46,7 +46,7 @@
                             <li>
                                 Band:
                                 {% if band.band_url %}
-                                     <a href="{{band.band_url }}" target="_blank">{{ band }}</a>
+                                     <a href="{{band.band_url }}" title="band" target="_blank">{{ band }}</a>
                                 {% else %}
                                     <a>{{ band }}</a>
                                 {% endif %}
@@ -58,7 +58,7 @@
                                 {% for p in producer %}
 
                                         {% if p.producer_url %}
-                                             <a href="{{ p.producer_url }}" target="_blank">{{ p }} &nbsp;</a>
+                                             <a href="{{ p.producer_url }}" title="producer" target="_blank">{{ p }} &nbsp;</a>
                                         {% else %}
                                              <a>{{ p }} &nbsp;</a>
                                         {% endif %}
@@ -75,7 +75,7 @@
 
                         {% if track_profile.label %}
                             {% if track_profile.label.website %}
-                                <li>Label:  <a href="{{ track_profile.label.website }}" target="_blank"> {{ studio }}</a></li>
+                                <li>Label:  <a href="{{ track_profile.label.website }}" title="label" target="_blank"> {{ studio }}</a></li>
                             {% else %}
                                 <li>Label:  <a> {{ track_profile.label }}</a></li>
                             {% endif %}
@@ -83,7 +83,7 @@
 
                         {% if studio %}
                             {% if studio.website %}
-                                <li>Recorded at:  <a href="{{ studio.website }}" target="_blank"> {{ studio }}</a></li>
+                                <li>Recorded at:  <a href="{{ studio.website }}" title="studio" target="_blank"> {{ studio }}</a></li>
                             {% else %}
                                 <li>Recorded at:  <a> {{ studio }}</a></li>
                             {% endif %}
@@ -97,7 +97,7 @@
                             <h4>Links</h4>
                             {% for l in links %}
                                 <li>
-                                    <a href="{{ l.link_url }}"  target="_blank" >
+                                    <a href="{{ l.link_url }}" title="link"  target="_blank" >
                                         {{ l }}
                                     </a>
                                 </li>

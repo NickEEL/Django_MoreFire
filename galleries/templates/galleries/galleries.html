@@ -46,12 +46,12 @@
                             {% for cov in cover_photo %}
                                 {% if cov.gallery == gallery %}
 
-                                    <a href="{% url 'gallery' gallery.id %}" >
+                                    <a href="{% url 'gallery' gallery.id %}" title="gallery">
                                         <img src="{{ cov.photo.url }}" class="img-thumnail"></img><br>
                                         Gallery: {{ gallery.name }}
                                     </a>
                                 {% else %}
-                                    <a href="{% url 'gallery' gallery.id %}" >
+                                    <a href="{% url 'gallery' gallery.id %}" title="gallery">
                                         Gallery: {{ gallery.name }}
                                     </a>
                                 {% endif %}
@@ -59,7 +59,7 @@
                             {% if gallery.event %}
                                 <hr>
                                 Event Date: <a>{{ gallery.event.start_dt.date }}</a><br>
-                                <a href="{% url 'event-profile' gallery.event.id %}" class="btn btn-dark" id="card_butt" align="right">Event: {{ gallery.event.name }}</a>
+                                <a href="{% url 'event-profile' gallery.event.id %}" title="event" class="btn btn-dark" id="card_butt" align="right">Event: {{ gallery.event.name }}</a>
                             {% endif %}
                         </div>
                     </div>

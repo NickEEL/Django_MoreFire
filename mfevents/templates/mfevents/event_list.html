@@ -54,14 +54,14 @@
                                         <li>Date: <a>{{ event.start_dt.date }}</a></li>
                                         <li>Venue: <a>{{ event.venue }} </a></li>
                                             {% if event.ticket_url %}
-                                                <li> <a href="{{ event.ticket_url }}" target="_blank">Tickets</a> </li>
+                                                <li> <a href="{{ event.ticket_url }}" title="tickets" target="_blank">Tickets</a> </li>
                                             {% endif %}
                                         {% endif %}
                                   </ul>
                               </p>
                           </div>
                            <div>
-                                <a href="{% url 'event-profile' event.id %}" class="btn btn-light" id="card_butt">{{ event }} Info</a>
+                                <a href="{% url 'event-profile' event.id %}" title="event" class="btn btn-light" id="card_butt">{{ event }} Info</a>
                                 <hr>
                            </div>
                         </div>

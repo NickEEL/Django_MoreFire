@@ -134,6 +134,9 @@ class Track(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('track_profile', kwargs={'track_id': self.pk})
+
 
 
 class Mix(models.Model):
@@ -152,3 +155,6 @@ class Mix(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('mix_profile', kwargs={'mix_id': self.pk})

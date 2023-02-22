@@ -18,9 +18,9 @@
 <div class="photos-galleries">
     <div>
         <center>
-            <a href="{% url 'gallery' photo.gallery.id %}" class="btn btn-dark"  align="left">Gallery: {{ gallery.name }}</a>
+            <a href="{% url 'gallery' photo.gallery.id %}" title="gallery" class="btn btn-dark"  align="left">Gallery: {{ gallery.name }}</a>
             {% if photo_gallery.event %}
-                <a href="{% url 'event-profile' photo_gallery.event.id %}" class="btn btn-dark"  align="right">Event: {{ photo_gallery.event }}</a>
+                <a href="{% url 'event-profile' photo_gallery.event.id %}" title="event" class="btn btn-dark"  align="right">Event: {{ photo_gallery.event }}</a>
             {% endif %}
         </center>
     </div>
@@ -50,9 +50,9 @@
     </div>
     <div>
         <center>
-            <a href="{% url 'gallery' photo.gallery.id %}" class="btn btn-dark"  align="left">Gallery: {{ gallery.name }}</a>
+            <a href="{% url 'gallery' photo.gallery.id %}" title="gallery" class="btn btn-dark"  align="left">Gallery: {{ gallery.name }}</a>
             {% if photo_gallery.event %}
-                <a href="{% url 'event-profile' photo_gallery.event.id %}" class="btn btn-dark"  align="right">Event: {{ photo_gallery.event }}</a>
+                <a href="{% url 'event-profile' photo_gallery.event.id %}" title="event" class="btn btn-dark"  align="right">Event: {{ photo_gallery.event }}</a>
             {% endif %}
         </center>
     </div>

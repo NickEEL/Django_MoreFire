@@ -15,8 +15,8 @@
 <div>
     <center>
         <div>
-            <a href="{% url 'events-list' %}" class="btn btn-light" id="card_butt">Listings</a>
-            <a href="{% url 'past-events-list' %}" class="btn btn-light" id="card_butt">Past Events</a>
+            <a href="{% url 'events-list' %}" title="events" class="btn btn-light" id="card_butt">Listings</a>
+            <a href="{% url 'past-events-list' %}" title="past events" class="btn btn-light" id="card_butt">Past Events</a>
         </div>
 
         <div class="music_profile">
@@ -35,7 +35,7 @@
                     <ul class="no-bullets">
                         <li>Date: <a>{{ event.start_dt.date }} </a> </li>
                         {% if venue_url %}
-                            <li>Venue: <a href="{{ venue_url }}" target="_blank">{{ event.venue }}</a> </li>
+                            <li>Venue: <a href="{{ venue_url }}" title="venue" target="_blank">{{ event.venue }}</a> </li>
                         {% else %}
                             <li>Venue: <a>{{ event.venue }}</a></li>
                         {% endif %}
@@ -49,12 +49,12 @@
                         {% else %}
                         <li> Start: <a>{{ event_start }}</a> </li>
                             <li>Finish: <a>{{ event_finish }} </a></li>
-                            <li> Venue: <a href="{{ venue_url }}" target="_blank">{{ event.venue }}</a> </li>
+                            <li> Venue: <a href="{{ venue_url }}" title="venue" target="_blank">{{ event.venue }}</a> </li>
                             {% if event.event_url %}
-                                <li> Website: <a href="{{ event.event_url }}" target="_blank">{{ event.event_url }}</a> </li>
+                                <li> Website: <a href="{{ event.event_url }}" title="event" target="_blank">{{ event.event_url }}</a> </li>
                             {% endif %}
                             {% if event.ticket_url %}
-                                <li> Ticket: <a href="{{ event.ticket_url }}" target="_blank" >{{ event.ticket_url }}</a> </li>
+                                <li> Ticket: <a href="{{ event.ticket_url }}" title="tickets" target="_blank" >{{ event.ticket_url }}</a> </li>
                             {% endif %}
 
                         {% endif %}
@@ -82,7 +82,7 @@
                                     <ul class="no-bullets">
                                         <li>
                                             {% if v.artist_url %}
-                                                 <a href="{{ v.artist_url }}" target="_blank">{{ v }}</a>
+                                                 <a href="{{ v.artist_url }}" title="artist" target="_blank">{{ v }}</a>
                                             {% else %}
                                                  <a>{{ v }}</a>
                                             {% endif %}
@@ -99,7 +99,7 @@
                                     <ul class="no-bullets">
                                         <li>
                                             {% if s.artist_url %}
-                                                 <a href="{{ s.artist_url }}" target="_blank">{{ s }}</a>
+                                                 <a href="{{ s.artist_url }}" title="artist" target="_blank">{{ s }}</a>
                                             {% else %}
                                                  <a>{{ s }}</a>
                                             {% endif %}
@@ -117,7 +117,7 @@
                                     <ul class="no-bullets">
                                         <li>
                                             {% if i.artist_url %}
-                                                 <a href="{{ i.artist_url }}" target="_blank">{{ i }}</a>
+                                                 <a href="{{ i.artist_url }}" title="artist" target="_blank">{{ i }}</a>
                                             {% else %}
                                                  <a>{{ i }}</a>
                                             {% endif %}
@@ -131,7 +131,7 @@
                                     <ul class="no-bullets">
                                         <li>
                                             {% if b.artist_url %}
-                                                 <a href="{{ b.band_url }}" target="_blank">{{ b }}</a>
+                                                 <a href="{{ b.band_url }}" title="band" target="_blank">{{ b }}</a>
                                             {% else %}
                                                  <a>{{ b }}</a>
                                             {% endif %}
@@ -149,7 +149,7 @@
                         {% for mix in mixes %}
                             <ul class="no-bullets">
                                 <li>
-                                    <a href="{% url 'mix-profile' mix.id %}" >
+                                    <a href="{% url 'mix-profile' mix.id %}" title="mix">
                                         {{ mix }}
                                     </a>
                                 </li>
@@ -163,7 +163,7 @@
                         <h4>Photo Galleries</h4>
                         {% for g in event_galleries %}
                             <ul class="no-bullets">
-                                <li><a href="{% url 'gallery' g.id %}">{{ g }}</a></li>
+                                <li><a href="{% url 'gallery' g.id %}" title="gallery">{{ g }}</a></li>
                             </ul>
 
                         {% endfor %}

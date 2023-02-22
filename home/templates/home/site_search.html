@@ -23,7 +23,7 @@
                         {% for event in listings_srch %}
                             <li>
                                 {{ event.start_dt }} -
-                                <a href="{% url 'event-profile' event.id %}">{{ event }} </a>
+                                <a href="{% url 'event-profile' event.id %}" title="event" >{{ event }} </a>
                             </li>
                         {% endfor %}
                     </div>
@@ -36,7 +36,7 @@
                         {% for event in past_events_srch %}
                             <li>
                                 {{ event.start_dt.date }} -
-                                <a href="{% url 'event-profile' event.id %}">{{ event }} </a>
+                                <a href="{% url 'event-profile' event.id %}" title="event" >{{ event }} </a>
                             </li>
                         {% endfor %}
                     </div>
@@ -49,7 +49,7 @@
                         {% for mix in mix_srch %}
                             <li>
                                 {{ mix.release_date }} -
-                                <a href="{% url 'mix-profile' mix.id %}">{{ mix }} </a>
+                                <a href="{% url 'mix-profile' mix.id %}" title="mix" >{{ mix }} </a>
                             </li>
                         {% endfor %}
                     </div>
@@ -62,7 +62,7 @@
                         {% for track in track_srch %}
                             <li>
                                 {{ track.release_date }} -
-                                <a href="{% url 'track_profile' track.id %}">{{ track }} </a>
+                                <a href="{% url 'track_profile' track.id %}" title="track">{{ track }} </a>
                             </li>
                         {% endfor %}
                     </div>
@@ -75,7 +75,7 @@
                         {% for gallery in galleries_srch %}
                             <li>
                                 {{ gallery.created_dt }} -
-                                <a href="{% url 'gallery' gallery.id %}" >{{ gallery}}</a>
+                                <a href="{% url 'gallery' gallery.id %}" title="gallery" >{{ gallery}}</a>
                             </li>
                         {% endfor %}
                     </div>
@@ -88,7 +88,7 @@
                         {% for photo in photo_srch %}
                             <li>
                                 {{ photo.created_dt }} -
-                                <a href="{% url 'photo' photo.gallery.id photo.id %}">{{ photo }}</a>
+                                <a href="{% url 'photo' photo.gallery.id photo.id %}" title="photo" >{{ photo }}</a>
                             </li>
                         {% endfor %}
                     </div>
