@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'django.contrib.sites',
+    'django.contrib.sites',
     'django.contrib.sitemaps',
     'captcha',
     'storages',
@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'galleries.apps.GalleriesConfig',
     'mfevents.apps.MfeventsConfig',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

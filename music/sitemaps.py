@@ -1,6 +1,6 @@
 from django.contrib.sitemaps import Sitemap
 from django.shortcuts import reverse
-from music.models import Mix, Track
+from mfevents.models import Mix, Track
 
 
 class MixViewSitemap(Sitemap):
