@@ -7,7 +7,7 @@
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/amplitudejs@{{5.0.3}}/dist/amplitude.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8">
-        <meta name="keywords" content="More Fire, Dub Dave, more fire, morefire, morefireouternational, morefire outernational, morefire soundsystem, morefire sound, morefire productions, sound, sound system, soundsystem, dub, jungle, dub dave, bristol, tracks, mix, mixes, events">
+        <meta name="keywords" content="more, fire, outernational, soundsystem, productions, More, Fire, Outernational, Soundsystem, Productions,More Fire, Dub Dave, more fire, morefire, morefireouternational, morefire outernational, more fire outernational, morefire soundsystem, morefire sound, morefire productions, sound, sound system, soundsystem, dub, jungle, dub dave, bristol, tracks, mix, mixes, events, records, dj, mc">
         <meta name="description" content="More Fire Outernational! Founded by Dub Dave More Fire Soundsystem and More Productions (record label).Bassed in Bristol (UK). Soundsystem, Events, private hire, Original Tracks and mixes.">
         <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
         <title>More Fire Outernational Home</title>
@@ -43,6 +43,28 @@
                     </p>
                 </article>
             {% endif %}
+             <div>
+                <center>
+                    {% if links_mf %}
+                        <h3>More Fire Links</h3>
+                        <a>Follow More Fire at:</a>
+                            {% for l in links_mf %}
+                                <li>
+                                    <a href="{{ l.link_url }}" title="more fire links" target="_blank">
+                                        {{ l.name }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                            {% for l in links_mf_stream %}
+                                <li>
+                                    <a href="{{ l.link_url }}" title="more fire links" target="_blank">
+                                        {{ l.name }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                    {% endif %}
+                </center>
+               </div>
             <div id="enq_butt_hm">
                 <center>
                     <a class="btn btn-dark" role="button" href=" {% url 'enquiries' %}" title="enquiries" align="center" >Enquiries</a>

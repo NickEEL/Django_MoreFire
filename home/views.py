@@ -134,7 +134,8 @@ class HomeView(TemplateView):
     def get(self, request):
         photo_hm = Photohome.objects.all()
         photo_hm_1st_rdm = Photohome.objects.order_by('?').first()
-
+        links_mf = Link.objects.exclude(mflink=False).filter(linktype__social=True).order_by('name')
+        links_mf_stream = Link.objects.filter(mflink=True).filter(linktype__stream=True).exclude(mix_bol=True).exclude(track_bol=True).order_by('name')
         try:
             info_hm_top = Infohome.objects.get(top=True)
         except:
@@ -147,6 +148,8 @@ class HomeView(TemplateView):
             'photo_hm': photo_hm_1st_rdm,
             'info_hm_top' : info_hm_top,
             'info_hm_xtop': info_hm_xtop,
+            'links_mf': links_mf,
+            'links_mf_stream': links_mf_stream,
         }
         return render(request, self.template_name, args)
 
