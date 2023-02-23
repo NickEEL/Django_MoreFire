@@ -24,6 +24,9 @@ class Infohome(models.Model):
     top = models.BooleanField('Top/welcome mesage (True/False)', default=False)
     created_dt = models.DateTimeField('Date created', auto_now_add=True)
     edited_dt = models.DateTimeField('Date edited', auto_now=True)
+    mix = models.ForeignKey(Mix, on_delete=models.CASCADE, null=True, blank=True)
+    track = models.ForeignKey(Track, on_delete=models.CASCADE, null=True, blank=True)
+    event = models.ForeignKey(MFEvent, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return self.headline
@@ -52,8 +55,8 @@ class Link(models.Model):
     mflink = models.BooleanField('More Fire link', default=False)
     mix_bol = models.BooleanField('Mix link', default=False)
     track_bol = models.BooleanField('Track link', default=False)
-    mix = models.ForeignKey(Mix, on_delete=models.PROTECT, null=True, blank=True)
-    track = models.ForeignKey(Track, on_delete=models.PROTECT, null=True, blank=True)
+    mix = models.ForeignKey(Mix, on_delete=models.CASCADE, null=True, blank=True)
+    track = models.ForeignKey(Track, on_delete=models.CASCADE, null=True, blank=True)
     link_url = models.URLField('Link url')
     logo_lnk = models.ImageField('Link Logo', upload_to= 'logo_images/', null=True, blank=True)
 

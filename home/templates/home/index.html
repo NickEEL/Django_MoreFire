@@ -85,14 +85,42 @@
                                     <h3>{{ post.headline }}</h3>
                                 {% endif %}
                                 <center>
-                                    <a>Created: {{ post.created_dt }}</a>
-                                {% if post.created_dt != post.edited_dt %}
-                                    <a>&emsp13;Edited: {{ post.edited_dt }}</a>
-                                {% endif %}
+                                        <a>Created: {{ post.created_dt }}</a>
+                                    {% if post.created_dt != post.edited_dt %}
+                                        <a>&emsp13;Edited: {{ post.edited_dt }}</a>
+                                    {% endif %}
+                                        <br>
+
                                 </center>
                                 <p>
                                     {{ post.info }}
                                 </p>
+                                 <div id="enq_butt_hm">
+                                    <center>
+                                       {% if post.mix %}
+
+                                            <a class="btn btn-dark" role="button" href="{% url 'mix-profile' post.mix.id %}" title="mix" align="center">
+                                                Go to Mix
+                                            </a>
+
+                                        {% endif %}
+                                    {% if post.track %}
+
+
+                                            <a class="btn btn-dark" role="button" href="{% url 'track_profile' post.track.id %}" title="track" align="center">
+                                                Go To Track
+                                            </a>
+
+                                    {% endif %}
+                                    {% if post.event %}
+                                        <a class="btn btn-dark" role="button" href="{% url 'event-profile' post.event.id %}" title="event" align="center">
+                                            Go To Event
+                                        </a>
+
+                                    {% endif %}
+
+                                    </center>
+                                </div>
                             </article>
                         </li>
                         <hr>
