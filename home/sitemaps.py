@@ -12,6 +12,15 @@ class StaticHomeViewSitemap(Sitemap):
         return reverse(item)
 
 
+class StaticLinksViewSitemap(Sitemap):
+
+    def items(self):
+        return ['links']
+
+    def location(self, item):
+        return reverse(item)
+
+
 class CalendarEntrySitemap(Sitemap):
     changefreq = 'never'
     priority = 0.5

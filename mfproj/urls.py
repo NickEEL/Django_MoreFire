@@ -14,12 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, re_path, include
 from django.views.generic.base import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
-from home.sitemaps import StaticHomeViewSitemap, CalendarEntrySitemap
+from home.sitemaps import StaticHomeViewSitemap, StaticLinksViewSitemap, CalendarEntrySitemap
 from music.sitemaps import MixViewSitemap, TrackViewSitemap
 from mfevents.sitemaps import ListingsViewSitemap, PastEventsViewSitemap
 from galleries.sitemaps import GalleryViewSitemap, PhotoViewSitemap
@@ -27,6 +27,7 @@ from galleries.sitemaps import GalleryViewSitemap, PhotoViewSitemap
 
 sitemaps= {
     'static_home': StaticHomeViewSitemap,
+    'links': StaticLinksViewSitemap,
     'calendar_entry': CalendarEntrySitemap,
     'mix': MixViewSitemap,
     'track': TrackViewSitemap,
@@ -40,6 +41,7 @@ sitemaps= {
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    re_path(r'^robots\.txt', include('robots.urls')),
     path('', include('home.urls')),
     path('events/', include('mfevents.urls')),
     path('music/', include('music.urls')),

@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'treebeard',
     'captcha',
     'storages',
+    'robots',
     #created apps
     'home.apps.HomeConfig',
     'music.apps.MusicConfig',
@@ -57,6 +58,7 @@ INSTALLED_APPS = [
 ]
 
 SITE_ID = 1
+ROBOTS_USE_SCHEME_IN_HOST = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
