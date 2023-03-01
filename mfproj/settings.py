@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'captcha',
     'storages',
     'robots',
+    'webmaster_verification',
     #created apps
     'home.apps.HomeConfig',
     'music.apps.MusicConfig',
@@ -229,6 +230,13 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = config('EMAIL_USE_TLS')
 #EMAIL_USE_SSL = config('EMAIL_HOST_SSL')
 
+WEBMASTER_VERIFICATION = {
+    #'bing': '<bing verification code>',
+    'google': 'google56aa5d979d0ffefa',
+    #'majestic': '<majestic verification code>',
+    #'yandex': '<yandex verification code>',
+    #'alexa': '<alexa verification code>',
+}
 
 """
 LOGGING = {
