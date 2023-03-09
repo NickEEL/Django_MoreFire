@@ -7,16 +7,6 @@ from django.db.models.signals import post_save
 from mfevents.models import MFEvent, Track, Mix
 
 
-# Create your models here.
-class Photohome(models.Model):
-    name = models.CharField('Photo name', max_length=50, default='Photo #')
-    hm_image = models.ImageField('Home page image', upload_to='home_images/', null=True, blank=True)
-    portrait = models.BooleanField('Portrait? True/False', default=False)
-    upload_dt = models.DateTimeField('Date Photo uploaded', auto_now_add=True)
-
-    def __str__(self):
-        return self.name
-
 
 class Infohome(models.Model):
     headline = models.CharField('Headline', max_length=100, default='Headline')
