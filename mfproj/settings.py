@@ -232,7 +232,7 @@ EMAIL_USE_TLS = config('EMAIL_USE_TLS')
 
 WEBMASTER_VERIFICATION = {
     #'bing': '<bing verification code>',
-    'google': 'google56aa5d979d0ffefa',
+    'google': config('GOOGLE_VERIFY'),
     #'majestic': '<majestic verification code>',
     #'yandex': '<yandex verification code>',
     #'alexa': '<alexa verification code>',

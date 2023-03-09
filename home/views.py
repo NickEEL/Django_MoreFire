@@ -134,6 +134,8 @@ class HomeView(TemplateView):
     def get(self, request):
         photo_hm = Photohome.objects.all()
         photo_hm_1st_rdm = Photohome.objects.order_by('?').first()
+        fav_gallery = Gallery.objects.get(pk=2)
+        fav_photos = Photo.objects.filter(gallery__id=fav_gallery.id).order_by('?').first()
         links_mf = Link.objects.exclude(mflink=False).filter(linktype__social=True).order_by('name')
         links_mf_stream = Link.objects.filter(mflink=True).filter(linktype__stream=True).exclude(mix_bol=True).exclude(track_bol=True).order_by('name')
         try:
@@ -146,6 +148,7 @@ class HomeView(TemplateView):
         args = {
             'current_year': current_year_utc,
             'photo_hm': photo_hm_1st_rdm,
+            'fav_photos': fav_photos,
             'info_hm_top' : info_hm_top,
             'info_hm_xtop': info_hm_xtop,
             'links_mf': links_mf,

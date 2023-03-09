@@ -21,13 +21,13 @@
 
 {% block content %}
     <div >
-        <section>
+        <section  >
           <center>
-            {% if photo_hm.hm_image %}
-              {% if photo_hm.portrait %}
-                <img class="home_photo_img_p" src="{{ photo_hm.hm_image.url }}" alt="More Fire Sound"></img>
+            {% if fav_photos.photo %}
+              {% if fav_photos.portrait %}
+                <img class="home_photo_img_p" src="{{ fav_photos.photo.url }}" alt="More Fire Sound"></img>
               {% else %}
-                <img class="home_photo_img" src="{{ photo_hm.hm_image.url }}" alt="More Fire Sound"></img>
+                <img class="home_photo_img" src="{{ fav_photos.photo.url }}" alt="More Fire Sound"></img>
               {% endif %}
             {% endif %}
           </center>
